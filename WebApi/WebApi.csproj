@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\juriinterpreter\juri.fsproj" />
+    <ProjectReference Include="..\juri_-interpreter-_\juri-master\juri.fsproj" />
   </ItemGroup>
 
 </Project>
