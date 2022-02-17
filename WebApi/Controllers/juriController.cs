@@ -7,9 +7,9 @@ namespace WebApi.Controllers
     [ApiController]
     public class juriController : ControllerBase
     {
-        private static List<juri> heroes = new List<juri>
+        private static List<Juri> heroes = new List<Juri>
         {
-        new juri
+        new Juri
             {
             Id = 1,
             Name = "Spider Man",
@@ -17,7 +17,7 @@ namespace WebApi.Controllers
             LastName = "Parker",
             Place = "New York City"
             },
-        new juri
+        new Juri
             {
             Id = 2,
             Name = "Iron Man",
@@ -29,13 +29,13 @@ namespace WebApi.Controllers
         
 
         [HttpGet]
-        public async Task<ActionResult<List<juri>>> Get()
+        public async Task<ActionResult<List<Juri>>> Get()
         {
             return Ok(heroes);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<juri>> Get(int id)
+        public async Task<ActionResult<Juri>> Get(int id)
         {
             var hero = heroes.Find(h => h.Id == id);
             if (hero == null)
@@ -44,14 +44,14 @@ namespace WebApi.Controllers
         }
         
         [HttpPost]
-        public async Task<ActionResult<List<juri>>> AddHero(juri hero)
+        public async Task<ActionResult<List<Juri>>> AddHero(Juri hero)
         {
             heroes.Add(hero);
             return Ok(heroes);
         }
 
         [HttpPut]
-        public async Task<ActionResult<List<juri>>> UpdateHero(juri request)
+        public async Task<ActionResult<List<Juri>>> UpdateHero(Juri request)
         {
             var hero = heroes.Find(h => h.Id == request.Id);
             if (hero == null)
@@ -66,7 +66,7 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<juri>>> DeleteHero(int id)
+        public async Task<ActionResult<List<Juri>>> DeleteHero(int id)
         {
             var hero = heroes.Find(h => h.Id == id);
             if (hero == null)
