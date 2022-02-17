@@ -11,7 +11,10 @@ namespace WebApi.Controllers
         [HttpGet("{Inhalt}")]
         public async Task<ActionResult<JuriCompiler>> Get(string Inhalt)
         {
-            return Ok(Inhalt);
+            var ínterpreter = new API.Interpreter();
+            ínterpreter.ParseJuriProgram(Inhalt);
+            ínterpreter.ExecuteProgram();
+            return Ok("");
         }
     }
 }
